@@ -3,18 +3,18 @@ int main(){
 	// to create a file open a file, read a file or write a file we need to declare a pointer named -> *FILE 
 	// to open the file we use the fopen
 	FILE *fileptr; // creating the file pointer
-	fileptr = fopen("elf2.c", "w"); // "w" mode is to write inside a file. if the file doesnt exist the program will create it.
+	fileptr = fopen("elf2", "w"); // "w" mode is to write inside a file. if the file doesnt exist the program will create it.
 									// if you want to create a file to a specific folder just provide the absolute path.
 									// problem with "w" mode is that it overwrites whatever content is inside the file with the new stuff you write using fprintf
 	fprintf(fileptr, "lolbruh");// writing content inside the file.
 	fclose(fileptr);// closing the file pointer is necessary
 	FILE *fileptr2;
-	fileptr2 = fopen("elf2.c", "a"); // opening file in "a" append mode 
+	fileptr2 = fopen("elf2", "a"); // opening file in "a" append mode 
 									// this allows us to write inside the file without overwriting the content already present there.
 	fprintf(fileptr2, "\nwhassup2\n");
 	fclose(fileptr2);
 	FILE *fileptr3;
-	fileptr3 = fopen("elf2.c", "r");
+	fileptr3 = fopen("elf2", "r");
 	if(fileptr3 == NULL){	// good practice to check whether we were able to open file or not.
 		printf("not able to open file");
 	}
@@ -27,7 +27,7 @@ int main(){
 	printf("%s", read_data);
 	fclose(fileptr3);
 	FILE *fileptr4;
-	fileptr4 = fopen("elf2.c", "r");
+	fileptr4 = fopen("elf2", "r");
 	if(fileptr3 == NULL){	// good practice to check whether we were able to open file or not.
 		printf("not able to open file");
 	}
