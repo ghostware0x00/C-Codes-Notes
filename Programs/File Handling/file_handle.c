@@ -74,10 +74,16 @@ int main(){
 	}
 	fclose(fileBinaryWrite);
 	FILE *fileBinaryRead;
-	fileBinaryRead = fopen("hello.exe", "rb"); // "rb" means read binary "hello.exe"
+	fileBinaryRead = fopen("hello", "rb"); // "rb" means read binary "hello"
 	//fread(<memory destination>, <size of each element>, <number of elements>, <file pointer>);
+	/*
+	args1 requires the address of the memory block whose data will be written to the binary file.
+	args2 specifies the size of each data element in bytes.
+	args3 specifes how many elements to read
+	args4 specifies the binary file pointer variable 
+	*/
 	fread(&sum, sizeof(struct threeSum), 1, fileBinaryRead);
-	// here struct is 16 bytes so fread will read the first 16 bytes from the "hello.exe" into the struct threeSum
+	// here struct is 16 bytes so fread will read the first 16 bytes from the "hello" into the struct threeSum
 	// the data will be stored inside the struct data members n1, n2, n3, n4
 	printf("Reading binary file and storing binary data in struct ------>\n");
 	printf("n1 = 0x%x\tn2 = 0x%x\tn3 = 0x%x\tn4 = 0x%x\n",sum.n1, sum.n2, sum.n3, sum.n4);// using struct variable displaying the data
