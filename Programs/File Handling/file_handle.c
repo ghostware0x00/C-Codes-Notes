@@ -1,4 +1,9 @@
 #include<stdio.h>
+
+struct threeSum{
+	int n1, n2, n3, n4;
+};
+
 int main(){
 	// to create a file open a file, read a file or write a file we need to declare a pointer named -> *FILE 
 	// to open the file we use the fopen
@@ -38,5 +43,30 @@ int main(){
 	}
 
 	// check the geeksfogeeks for binary file handling in c [https://www.geeksforgeeks.org/c/basics-file-handling-c/]
+	FILE *fileBinaryWrite;
+	struct threeSum sum;
+	fileBinaryWrite = fopen("hello", "wb"); // "wb" means write binary file. 
+	sum.n1 = 10;
+	sum.n2 = 20;
+	sum.n3 = 30;
+	sum.n4 = sum.n1 + sum.n2 + sum.n3;
+	//fileBinary = fopen("hello", "rb"); // rb = r for read and b for binary so basically read binary file. here "hello" is an elf binary present in the current directory of linux.
+	int flag = 0;
+	flag = fwrite(&sum, sizeof(struct threeSum), 1, fileBinaryWrite);
+	// writing to a binary file using fwrite()
+	// fwrite args -> fwrite(< the pointer variable of the memory block whose data we want to write>, <size of each element to be written in bytes>, <number of elements>, <file pointer variable>)
+	// so basically in the program above in fwrite
+	// i am writing 16 bytes(cuz 4 integers in struct) to flag variable
+	// since there is only 1 instance of struct i am writing so 1.
+	//if i wanted to write multiple instances so i can specify the number accordingly. So if 3 instances total size written would be 16 x 3 = 48 bytes to flag variable.
+	// the flag variable is basically for status checking whether binary write succesfully happened or not. if flag = 1 then ok else not ok.
+	printf("binary file write -------->\n");
+	if(flag){// if fwrite works then flag value will change to 1
+		printf("Write operation was successful\n");
+	}
+	else{
+		printf("Write operation was unsuccessful\n");
+	}
+	fclose(fileBinaryWrite);
 	return 0;
 }
