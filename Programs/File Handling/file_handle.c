@@ -45,16 +45,21 @@ int main(){
 	// check the geeksfogeeks for binary file handling in c [https://www.geeksforgeeks.org/c/basics-file-handling-c/]
 	FILE *fileBinaryWrite;
 	struct threeSum sum;
-	fileBinaryWrite = fopen("hello", "wb"); // "wb" means write binary file. 
+	fileBinaryWrite = fopen("hello.bin", "wb"); // "wb" means write binary file. 
 	sum.n1 = 10;
 	sum.n2 = 20;
 	sum.n3 = 30;
 	sum.n4 = sum.n1 + sum.n2 + sum.n3;
-	//fileBinary = fopen("hello", "rb"); // rb = r for read and b for binary so basically read binary file. here "hello" is an elf binary present in the current directory of linux.
 	int flag = 0;
 	flag = fwrite(&sum, sizeof(struct threeSum), 1, fileBinaryWrite);
 	// writing to a binary file using fwrite()
-	// fwrite args -> fwrite(< the pointer variable of the memory block whose data we want to write>, <size of each element to be written in bytes>, <number of elements>, <file pointer variable>)
+	// fwrite args -> fwrite(<pointer to data>, <size of one element>, <number of elements>, <file pointer>)
+	/*
+	args1 requires the address of the memory block whose data will be written to the binary file.
+	args2 specifies the size of each data element in bytes.
+	args3 specifies how many such elements to write.
+	args4 is the file pointer representing the binary file stream.
+	*/
 	// so basically in the program above in fwrite
 	// i am writing 16 bytes(cuz 4 integers in struct) to flag variable
 	// since there is only 1 instance of struct i am writing so 1.
