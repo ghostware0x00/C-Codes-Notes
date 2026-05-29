@@ -78,8 +78,8 @@ int main(){
 	//fread(<memory destination>, <size of each element>, <number of elements>, <file pointer>);
 	/*
 	args1 requires the address of the memory block where the binary data(bytes) of the binary file will  be stored.
-	args2 specifies the size of each data element in bytes.
-	args3 specifes how many elements to read
+	args2 specifies the size of the data to read
+	args3 specifies the number of elements of that same size to read
 	args4 specifies the binary file pointer variable 
 	*/
 	fread(&sum, sizeof(struct threeSum), 1, fileBinaryRead);
