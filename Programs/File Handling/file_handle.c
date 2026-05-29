@@ -77,7 +77,7 @@ int main(){
 	fileBinaryRead = fopen("hello", "rb"); // "rb" means read binary "hello"
 	//fread(<memory destination>, <size of each element>, <number of elements>, <file pointer>);
 	/*
-	args1 requires the address of the memory block whose data will be written to the binary file.
+	args1 requires the address of the memory block where the binary data(bytes) of the binary file will  be stored.
 	args2 specifies the size of each data element in bytes.
 	args3 specifes how many elements to read
 	args4 specifies the binary file pointer variable 
